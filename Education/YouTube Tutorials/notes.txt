@@ -1,0 +1,107 @@
+//Create a simple Django REST API 
+//link to Tutorial : https://www.youtube.com/watch?v=i5JykvxUk_A&list=PLks-qvDmGZVVDGR_9qzx5q7GhGLcJ1dkp&index=1
+
+//first thing, make a directory
+// 'mkdir Drinks'
+
+//create a virtual environment
+//'python3 -m venv .venv'
+//activate virtual environtment
+//'. .venv/Scripts/activate'
+
+//To start a new project for some reason the command 
+//django-admin startproject "project name" does not work
+//instead use 'python3 -m django startproject drinks' as the command'
+//also dont know why but copy and paste didnt work, I had to type it all out
+
+//navigate to drinks
+
+//run server 'python3 manage.py runserver'
+//open new terminal window
+
+//migrate server data
+// run 'python3 manage.py migrate'
+
+creating user infomration for API
+// run 'python3 manage.py createsuperuser' and fill this out
+
+Username (leave blank to use 'mckee'): admin
+Email address: email@email.com        
+Password:
+Password (again):
+    //note that the password will appear blank for security reasons but it is working
+This password is too common.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully
+
+//Adding our own table to Django
+
+create models.py file
+//create your models
+//have to add your app to the settings.py file
+//run command 'python3 manage.py makemigrations drinks'
+//run command 'python3 manage.py migrate'
+//create admin.py file
+//create criteria for admin
+//restart server
+//now you can see your tables in django admin server
+
+//add drink object table
+//right now it appears as 'Drink Object (1)'
+//to solve this go to models.py and create the __str__ function
+
+//Now you need to add 'rest_framework' to the settings.py applications 
+
+//Getting a JSON response
+//add a file called serialziers.py
+//create your meta data function
+
+//create a views.py file to handle all your endpoints
+//create your function to handle the data
+
+//go to urls.py file
+//create your path where the data is viewed as a jsonresponse
+// in this case the url is 'http://127.0.0.1:8000/drinks/'
+//'http://127.0.0.1:8000/drinks.json'
+//You will get a response that looks like this:
+
+{
+    "drinks": [
+        {
+            "id": 1,
+            "name": "Grape Soda",
+            "description": "Grape flavored carbonated beverage."
+        },
+        {
+            "id": 2,
+            "name": "Orange Soda",
+            "description": "Orange flavored carbonated beverage."
+        }
+    ]
+}
+
+//add @api_view(['GET', 'POST']) to views.py
+//import:
+    from rest_framework.decorators import api_view
+    from rest_framework.response import Response
+    from rest_framework import status
+
+//Now we will go to something called Postman
+//If you use the url from before you should see the same data displayed as if it were a jsonresponse
+//play around with this a bit, the current version looks different than the one in the video 
+
+//We are going to post something or add a new object to the database
+//change where is says get to post
+//change the top box parameters to raw, json
+//copy an object into this field
+    //dont need 'id' field, this can be deleted
+    //now you have 3 objects at this point
+
+//At this point you speed through some changes that make the code you just wrote better
+//essentially this code is correct and worked fine and if there are any additional qustions 
+//jsut rewatch the end of the video and it explains it quite well. 
+
+
+//Things to undestand
+    //What Create, Read, Update, and Delete or 'CRUD' is.
+    //Django Documentation
