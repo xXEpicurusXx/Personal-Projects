@@ -12,7 +12,7 @@
     {% for item in item_list %}
 
         <ul style="list-style-type: none" >
-            <li>
+            <li class = "foodList">
                 <a href = "{% url 'food:detail' item.id %}">{{ item.item_name }}</a>
             </li>
         </ul>
