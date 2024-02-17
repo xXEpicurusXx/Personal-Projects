@@ -16,14 +16,21 @@
 
     <nav class="navbar navbar-dark bg-dark">
 
-        <a class="navbar-brand" href="#">Food App</a>
+            <a class="navbar-brand" href="#">Food App</a>
 
-        <div class="navbar-item">
-            <a class="nav-item nav-list" href="{% url 'food:create_item' %}">Add Item</a>
-            <a class="nav-item nav-list" href="#">Delete Item</a>
-            <a class="nav-item nav-list" href="#">View Item</a>
-        </div>
-    </nav>
+            <div class="navbar-item">
+                <a class="nav-item nav-list" href="{% url 'food:create_item' %}">Add Item</a>
+                <a class="nav-item nav-list" href="#">Delete Item</a>
+                <a class="nav-item nav-list" href="#">View Item</a>
+
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+
+            </div>
+        </nav>
 
     {% if messages %}
     {% for message in messages %}
