@@ -1,0 +1,7 @@
+After creating the API for testing, I coded out a function that deletes the image both from inside Django
+and from inside the media file inside the directory. If a user wants to upload a new image to that table, 
+the old image will be replaced by the new image in that media folder. 
+
+Question:
+If a user wants to add a new image to that field, do we want to replace the old one with the new one or 
+only delete that image if the user selects the clear box?
