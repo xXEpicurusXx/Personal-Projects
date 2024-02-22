@@ -4,6 +4,7 @@ the old image will be replaced by the new image in that media folder.
 
 Question:
 If a user wants to add a new image to that field, do we want to replace the old one with the new one or 
+<<<<<<< HEAD
 only delete that image if the user selects the clear box?
 
 https://www.youtube.com/watch?v=fsVY66QBhwM&t=847s
@@ -27,3 +28,6 @@ https://www.youtube.com/watch?v=O5YkEFLXcRg&list=PLks-qvDmGZVVDGR_9qzx5q7GhGLcJ1
 
 bug in custom initiative, send update to borort and heip
 updated Class Business in models.py; if the image is not meant to be deleted then delete line 227 - 229
+=======
+only delete that image if the user selects the clear box?
+>>>>>>> main
