@@ -15,13 +15,13 @@ class Images(models.Model):
         
         super(Images, self).save(*args, **kwargs)
 
-        @receiver(models.signals.pre_delete, sender = "imageTesting.Images")        #this will need to be updated for sustainability
-        def server_delete_files(sender, instance, **kwargs):
-            for field in instance.meta.fields:
-                if field.name == "image":
-                    file = getattr(instance, field.name)
-                    if file:
-                        file.delete(save = False)
+        # @receiver(models.signals.pre_delete, sender = "imageTesting.Images")        #this will need to be updated for sustainability
+        # def server_delete_files(sender, instance, **kwargs):
+        #     for field in instance.meta.fields:
+        #         if field.name == "image":
+        #             file = getattr(instance, field.name)
+        #             if file:
+        #                 file.delete(save = False)
 
     def __str__(self):
         return self.name
