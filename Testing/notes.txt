@@ -4,4 +4,30 @@ the old image will be replaced by the new image in that media folder.
 
 Question:
 If a user wants to add a new image to that field, do we want to replace the old one with the new one or 
+<<<<<<< HEAD
 only delete that image if the user selects the clear box?
+
+https://www.youtube.com/watch?v=fsVY66QBhwM&t=847s
+https://www.youtube.com/watch?v=7ezh_aoU6YY&list=PLks-qvDmGZVVDGR_9qzx5q7GhGLcJ1dkp&index=25
+https://www.youtube.com/watch?v=O5YkEFLXcRg&list=PLks-qvDmGZVVDGR_9qzx5q7GhGLcJ1dkp&index=24
+
+
+    def save(self,force_insert=False, force_update=False, using=None,*args, **kwargs):
+
+        if self.id:
+            
+            self.image_file = image_utils.compress_image_if_over_1mb(self.image_file)
+
+            existing = get_object_or_404(InitiativeCategory, id = self.id)
+            if existing.image_file != self.image_file:
+                existing.image_file.delete(save=False)
+
+        super(InitiativeCategory, self).save(*args, **kwargs)
+
+
+
+bug in custom initiative, send update to borort and heip
+updated Class Business in models.py; if the image is not meant to be deleted then delete line 227 - 229
+=======
+only delete that image if the user selects the clear box?
+>>>>>>> main
